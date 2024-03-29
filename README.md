@@ -33,4 +33,17 @@
 
 <img src="img/3.png">
 
+### Задание 4
+
+<img src="img/4.png">
+
+### Задание 5
+
+<img src="img/5-1.png">
+
+<img src="img/5-2.png">
+
+<img src="img/5-3.png">
+
+
 
