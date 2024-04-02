@@ -43,7 +43,7 @@
 
 <img src="img/5-2.png">
 
-<img src="img/5-3.png">
+<img src="img/5-3.jpg">
 
 <img src="img/5-4.png">
 
