@@ -1,4 +1,4 @@
-# Домашнее задание к занятию "`Введение в Terraform`" - `Шатый Константин`
+# Домашнее задание к занятию "`Основы Terraform. Yandex Cloud`" - `Шатый Константин`
 
 
 ### Инструкция по выполнению домашнего задания
@@ -24,40 +24,42 @@
 ### Задание 1
 <img src="img/01.png">
 
+<img src="img/01-02.png">
+
+<img src="img/01-03.png">
+
 
 ### Задание 2
 
-<img src="img/02.png">
+<img src="img/2.png">
+
+<img src="img/2-1.png">
+
+<img src="img/2-2.png">
 
 ### Задание 3
 
-<img src="img/03.png">
+<img src="img/3-0.png">
+
+<img src="img/3.png">
 
 ### Задание 4
 
-<img src="img/04.png">
-
-<img src="img/04-01.png">
+<img src="img/4.png">
 
 ### Задание 5
 
-<img src="img/05.png">
+<img src="img/5.png">
 
 ### Задание 6
 
-<img src="img/06.png">
+<img src="img/6-1.png">
 
-### Задание 7
+<img src="img/6-2.png">
 
-<img src="img/07.png">
+<img src="img/6-3.png">
 
-### Задание 8
 
-При выполнении операции terraform destroy образ Docker с тегом nginx:latest не был удален из-за установленного значения keep_locally = true в ресурсе docker_image. Это значение указывает Terraform не удалять образ из локального хранилища Docker даже при выполнении операции удаления. Таким образом, даже если ресурс docker_image уничтожается, образ Docker сохраняется локально.
-
-Это подтверждается документацией Terraform провайдера Docker, которая говорит следующее о параметре keep_locally:
-
-'If true, then the Docker image won't be deleted on destroy operation. If this is false, it will delete the image from the docker local storage on destroy operation. (source)'
 
 
 
