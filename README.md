@@ -1,4 +1,4 @@
-# Домашнее задание к занятию "`Основы Terraform. Yandex Cloud`" - `Шатый Константин`
+# Домашнее задание к занятию "`Управляющие конструкции в коде Terraform`" - `Шатый Константин`
 
 
 ### Инструкция по выполнению домашнего задания
@@ -22,44 +22,19 @@
 
 ---
 ### Задание 1
-<img src="img/01.png">
 
-<img src="img/01-02.png">
-
-<img src="img/01-03.png">
-
+<img src="img/1.png">
 
 ### Задание 2
 
-<img src="img/2.png">
+<img src="img/2-0.png">
 
 <img src="img/2-1.png">
 
-<img src="img/2-2.png">
-
 ### Задание 3
-
-<img src="img/3-0.png">
 
 <img src="img/3.png">
 
 ### Задание 4
 
 <img src="img/4.png">
-
-### Задание 5
-
-<img src="img/5.png">
-
-### Задание 6
-
-<img src="img/6-1.png">
-
-<img src="img/6-2.png">
-
-<img src="img/6-3.png">
-
-
-
-
-
