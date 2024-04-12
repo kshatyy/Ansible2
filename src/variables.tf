@@ -28,39 +28,11 @@ variable "default_cidr" {
 variable "vpc_name" {
   type        = string
   default     = "develop"
-  description = "VPC network & subnet name"
+  description = "VPC network&subnet name"
 }
 
-
-###ssh vars
-
-variable "vms_ssh_root_key" {
+variable "vm_web_yandex_compute_image" {
   type        = string
-  default     = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIO6+gW2b2YC/Rm4ejiaa/+RH8SZ2Eb6LSQzBVtDLWExm kshatyy@ya.ru"
-  description = "ssh-keygen -t ed25519"
-}
-
-variable "netology-develop-platform" {
-  type = string
-  default     = "netology"
-}
-
-variable "env" {
-  type = string
-  default     = "develop"
-}
-
-variable "project" {
-  type = string
-  default     = "platform"
-}
-
-variable "role" {
-   type = string
-   default = "web"
-}
-
-variable "role1" {
-   type = string
-   default = "db"
+  default     = "ubuntu-2004-lts"
+  description = "Image OC"
 }
