@@ -30,7 +30,7 @@
 
 <img src="img/5.png">
 
-<img src="img/5-1.png">
+<img src="img/5-01.png">
 
 ### Задание 6
 
