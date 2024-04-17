@@ -1,0 +1,12 @@
+---
+clickhouse_version: "24.2.2.71"
+clickhouse_packages:
+  - clickhouse-client
+  - clickhouse-server
+  - clickhouse-common-static
+
+vector_version: "0.33.0"
+vector_architecture: "x86_64"
+vector_workdir: "/etc/kshatyy"
+vector_os_user: "vector"
+vector_os_group: "vector"
