@@ -44,3 +44,6 @@
 
 <img src="img/8.png">
 
+### Задание 9
+
+[Файл README.md](https://github.com/kshatyy/Ansible2/blob/main/manual/README.md)
