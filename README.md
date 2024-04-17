@@ -30,6 +30,10 @@
 
 <img src="img/5.png">
 
+### Задание 5
+
+<img src="img/5-1.png">
+
 ### Задание 6
 
 <img src="img/6.png">
