@@ -1,0 +1,85 @@
+---
+- name: Install Clickhouse
+  hosts: clickhouse
+  tasks:
+    - name: Get clickhouse distrib
+      ansible.builtin.get_url:
+        url: "https://packages.clickhouse.com/deb/pool/main/c/clickhouse/clickhouse-common-static_{{ clickhouse_version }}_amd64.deb"
+        dest: "/tmp/clickhouse-common-static_{{ clickhouse_version }}_amd64.deb"
+        mode: '0644'
+
+    - name: Install clickhouse packages
+      become: true
+      ansible.builtin.apt:
+        deb: "/tmp/clickhouse-common-static_{{ clickhouse_version }}_amd64.deb"
+
+  handlers:
+    - name: Start clickhouse service
+      become: true
+      ansible.builtin.service:
+        name: clickhouse-server
+        state: restarted
+
+    - name: Flush handlers
+      ansible.builtin.meta: flush_handlers
+
+    - name: Pause 20 sec
+      ansible.builtin.pause:
+        seconds: 20
+
+    - name: Create database
+      ansible.builtin.command: "clickhouse-client -q 'create database logs;'"
+      register: create_db
+      failed_when: create_db.rc != 0 and create_db.rc != 82
+      changed_when: create_db.rc == 0
+
+  tags: clickhouse
+
+- name: Install Vector
+  hosts: vector
+  vars_files:
+    - /mnt/c/Users/serpo/OneDrive/Документы/DZ_docker/dz_ansible/ansible2/playbook/group_vars/clickhouse/vars.yml
+  vars:
+    vector_workdir: "/etc/vector"
+
+  tasks:
+    - name: Get Vector distrib
+      ansible.builtin.get_url:
+        url: "https://packages.timber.io/vector/0.33.0/vector-{{ vector_version }}-{{ vector_architecture }}-unknown-linux-gnu.tar.gz"
+        dest: "/tmp/vector-{{ vector_version }}-{{ vector_architecture }}-unknown-linux-gnu.tar.gz"
+        mode: '0644'
+
+    - name: Create Vector directory
+      become: true
+      ansible.builtin.file:
+        path: /etc/vector
+        state: directory
+
+    - name: Unarchive Vector package
+      become: true
+      ansible.builtin.unarchive:
+        src: "/tmp/vector-{{ vector_version }}-{{ vector_architecture }}-unknown-linux-gnu.tar.gz"
+        dest: /etc/vector
+        remote_src: true
+
+    - name: Create Vector config vector.toml
+      become: true
+      ansible.builtin.copy:
+        src: "{{ vector_workdir }}/vector-{{ vector_architecture }}-unknown-linux-gnu/config/vector.toml"
+        dest: /etc/vector/
+        mode: 0644
+
+    - name: Template file
+      become: true
+      ansible.builtin.template:
+        src: vector.j2
+        dest: /etc/vector/vector.toml
+        mode: '0644'
+      tags: clickhouse
+
+    - name: Run Vector
+      become: true
+      ansible.builtin.shell: /etc/vector/vector-x86_64-unknown-linux-gnu/bin/vector --config /etc/vector/vector.toml &
+      changed_when: false
+
+  tags: vector

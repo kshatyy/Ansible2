@@ -1,0 +1,15 @@
+clickhouse:
+  hosts:
+    clickhouse:
+      ansible_connection: ssh
+      ansible_ssh_user: kshatyy
+      ansible_private_key_file: ~/.ssh/id_ed25519
+      ansible_host: 192.168.89.173
+
+vector:
+  hosts:
+    vector:
+      ansible_connection: ssh
+      ansible_ssh_user: kshatyy
+      ansible_host: 192.168.89.173
+      ansible_private_key_file: ~/.ssh/id_ed25519
